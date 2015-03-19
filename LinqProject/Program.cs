@@ -19,7 +19,7 @@ namespace LinqProject
             IEnumerable<string> results2 = nameArr
                 .Select(n => n.ToUpper())
                 .Where(n => n.Contains("M"))
-                .OrderBy(n => n.Length);
+                .OrderBy(n => n);
                 
             //a collection...
 
@@ -31,5 +31,22 @@ namespace LinqProject
             }
             Console.ReadLine();
         }
+    }
+
+    // Todo Class
+    public class Todo 
+    {
+        //User - Person that Todo is Assigned to
+        public string User { get; set; }
+        // Name - Name of the Task to be completed
+        public string Name { get; set; }
+        //Completed - boolean whether task has been completed
+        public bool isCompleted { get; set; }
+        //dateCreated - timestamp when time has been created
+        public DateTime dateCreated { get; set; }
+        //dateModifed - timestamp of last edit of Todo task
+        public DateTime dateModified { get; set; }
+
+
     }
 }
