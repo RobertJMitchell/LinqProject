@@ -1,0 +1,6 @@
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\bin\Debug\LinqProject.exe.config
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\bin\Debug\LinqProject.exe
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\bin\Debug\LinqProject.pdb
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\obj\Debug\LinqProject.csprojResolveAssemblyReference.cache
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\obj\Debug\LinqProject.exe
+c:\users\rj\documents\visual studio 2013\Projects\LinqProject\LinqProject\obj\Debug\LinqProject.pdb
