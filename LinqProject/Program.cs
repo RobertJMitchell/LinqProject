@@ -10,25 +10,7 @@ namespace LinqProject
     {
         static void Main(string[] args)
         {
-            // dataset....
-            string[] nameArr = { "Sue", "Saam", "Samantha", "samanthar", "Brit", "Rick" };
-            // LINQ - length of 3
-            IEnumerable<string> results = nameArr.Where(n => n.Length <= 3);
-            // LINQ - to check is name contains XYZ
-            //var MyArrayLower = nameArr.Select(s => s.ToLowerInvariant()).ToArray();
-            IEnumerable<string> results2 = nameArr
-                .Select(n => n.ToUpper())
-                .Where(n => n.Contains("AM"))
-                .OrderBy(n => n);
-
-            // a collection...
-            //Console.WriteLine(results);
-            // loop through each string
-            foreach (string str in results2)
-            {
-                //Console.WriteLine(str);
-            }
-
+            
             // List of TODOS
             List<Todo> tList = new List<Todo>
             {
@@ -40,19 +22,26 @@ namespace LinqProject
 
             };
 
-            Console.WriteLine("yadayd");
-            List<Todo> todoResults = tList.Where(t => t.isCompleted == true).ToList();
+            
+            List<Todo> todoResultsByCompletion = tList.Where(t => t.isCompleted == true).ToList();
 
-            foreach (var obj in todoResults)
+            foreach (var obj in todoResultsByCompletion)
             {
                 Console.WriteLine("Name: {0}", obj.User);
                 Console.WriteLine(obj.Name);
             }
 
-
+            List<Todo> todoResultsByCreation = tList.Where(t => t.dateCreated <= DateTime.Now.AddDays(-5)).ToList();
+            foreach (var obj in todoResultsByCreation)
+            {
+                Console.WriteLine("Name: {0}, Date Created: {3}", obj.User, obj.dateCreated);
+                Console.WriteLine(obj.dateCreated);
+            }
 
             Console.ReadLine();
         }
+
+        
     }
     // TODO Class
     public class Todo
