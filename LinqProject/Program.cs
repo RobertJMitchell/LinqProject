@@ -10,79 +10,73 @@ namespace LinqProject
     {
         static void Main(string[] args)
         {
-            //dataset...
-            string[] nameArr = {"Sue", "Mancy", "Michelle", "John Footpenis", "RJ", "Corinne"}; // array of strings for LINQ IENumerable example
-            //LINQ - Length of Characters Greater/Equal to 3
-            IEnumerable<string> results = nameArr.Where(n => n.Length >= 3); 
-            //LINQ - Check if name contains XYZ
-            var MyArrayLower = nameArr.Select(s => s.ToLowerInvariant()).ToArray();
+            // dataset....
+            string[] nameArr = { "Sue", "Saam", "Samantha", "samanthar", "Brit", "Rick" };
+            // LINQ - length of 3
+            IEnumerable<string> results = nameArr.Where(n => n.Length <= 3);
+            // LINQ - to check is name contains XYZ
+            //var MyArrayLower = nameArr.Select(s => s.ToLowerInvariant()).ToArray();
             IEnumerable<string> results2 = nameArr
                 .Select(n => n.ToUpper())
-                .Where(n => n.Contains("M"))
+                .Where(n => n.Contains("AM"))
                 .OrderBy(n => n);
-                
-            //a collection...
 
-            //loop through strings
-            
+            // a collection...
+            //Console.WriteLine(results);
+            // loop through each string
             foreach (string str in results2)
             {
-                Console.WriteLine(str);
+                //Console.WriteLine(str);
             }
 
-            //List of Todos
+            // List of TODOS
             List<Todo> tList = new List<Todo>
             {
-                new Todo("Rick", "Burn Couch", false, DateTime.Now.AddDays(-10), DateTime.Now.AddDays(-5) ),
-                new Todo("Sam", "Bring Soda", false, DateTime.Now.AddDays(-9), DateTime.Now),
-                new Todo("RJ", "Jack It", true, DateTime.Now.AddDays(-3), DateTime.Now ),
-                new Todo("River Phoenix", "Bring Cocaine", true, DateTime.Now.AddDays(-2), DateTime.Now ),
-                new Todo("Jack", "Bring Dip", false, DateTime.Now.AddDays(-10), DateTime.Now ),
-
+                new Todo("Rick",    "Burn couch", false, DateTime.Now.AddDays(-10),DateTime.Now.AddDays(-5) ),
+                new Todo("Sam",     "Bring Sodas", false, DateTime.Now.AddDays(-9), DateTime.Now),
+                new Todo("Mike",    "Bring Chip", false, DateTime.Now.AddDays(-6), DateTime.Now),
+                new Todo("Sue",     "Bring Beer", true, DateTime.Now.AddDays(-5), DateTime.Now),
+                new Todo("Ricky",   "Bring Pizza", true, DateTime.Now.AddDays(-5), DateTime.Now)
 
             };
 
+            Console.WriteLine("yadayd");
             List<Todo> todoResults = tList.Where(t => t.isCompleted == true).ToList();
+
             foreach (var obj in todoResults)
             {
-                Console.WriteLine();
+                Console.WriteLine("Name: {0}", obj.User);
+                Console.WriteLine(obj.Name);
             }
 
 
-            Console.ReadLine();
 
+            Console.ReadLine();
         }
     }
-
-    // Todo Class
-    public class Todo 
+    // TODO Class
+    public class Todo
     {
-        private string name;
-        private string task;
-        private bool isCompleted;
-        private DateTime dateCreated;
-        private DateTime dateModified;
 
-        public Todo(string task, string task, bool isCompleted, DateTime dateCreated, DateTime dateModified)
+        public Todo(string p1, string p2, bool p3, DateTime dateTime1, DateTime dateTime2)
         {
             // TODO: Complete member initialization
-            this.name = task;
-            this.task = task;
-            //this.isCompleted = isCompleted;
-            //this.dateCreated = dateCreated;
-            //this.dateModified = dateModified;
+            this.User = p1;
+            this.Name = p2;
+            this.isCompleted = p3;
+            this.dateCreated = dateTime1;
+            this.dateModified = dateTime2;
         }
-        //User - Person that Todo is Assigned to
+        // person TODO is assigned to
+        public string User { get; set; }
+        // Task that needs to be done
         public string Name { get; set; }
-        // Name - Name of the Task to be completed
-        public string Task { get; set; }
-        //Completed - boolean whether task has been completed
+        // if the Task has been completed
         public bool isCompleted { get; set; }
-        //dateCreated - timestamp when time has been created
+        // the creation date
         public DateTime dateCreated { get; set; }
-        //dateModifed - timestamp of last edit of Todo task
+        // the date it was modifed
         public DateTime dateModified { get; set; }
-
 
     }
 }
