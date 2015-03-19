@@ -15,10 +15,12 @@ namespace LinqProject
             //LINQ - Length of Characters Greater/Equal to 3
             IEnumerable<string> results = nameArr.Where(n => n.Length >= 3); 
             //LINQ - Check if name contains XYZ
+            var MyArrayLower = nameArr.Select(s => s.ToLowerInvariant()).ToArray();
             IEnumerable<string> results2 = nameArr
+                .Select(n => n.ToUpper())
                 .Where(n => n.Contains("M"))
-                .OrderBy(n => n.Length)
-                .Select(n => n.ToUpper());
+                .OrderBy(n => n.Length);
+                
             //a collection...
 
             //loop through strings
