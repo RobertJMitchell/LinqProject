@@ -25,20 +25,28 @@ namespace LinqProject
             
             List<Todo> todoResultsByCompletion = tList.Where(t => t.isCompleted == true).ToList();
 
+            Console.WriteLine("****************THIS IS A LIST OF TODOS COMPLETED*****************************");
+
+
             foreach (var obj in todoResultsByCompletion)
             {
                 Console.WriteLine("Name: {0}", obj.Name);
-                Console.WriteLine(obj.Name);
+                Console.WriteLine(" ");
+                
+                
             }
 
             
 
             List<Todo> todoResultsByCreation = tList.Where(t => t.dateCreated <= DateTime.Now.AddDays(-5)).ToList();
 
+            Console.WriteLine("****************THIS IS A LIST OF TODOS BY DATE CREATED************************");
+
             foreach (var obj in todoResultsByCreation)
             {
+                
                 Console.WriteLine("Names: {0}, Date Created: {1}", obj.Name, obj.dateCreated);
-                Console.WriteLine(obj.Name, obj.dateCreated);
+                Console.WriteLine(" ");
             }
 
             List<Todo> todoResultsByModification = tList.Where(t => t.dateModified <= DateTime.Now.AddDays(-6)).ToList();
@@ -46,9 +54,10 @@ namespace LinqProject
             foreach (var obj in todoResultsByModification)
             {
                 Console.WriteLine("Name: {0}, Date Created: {1}, Date Modified: {2}", obj.Name, obj.dateCreated, obj.dateModified);
-                Console.WriteLine(obj.Name, obj.dateCreated, obj.dateModified);
+                
             }
             Console.ReadLine();
+            
         }
 
         
