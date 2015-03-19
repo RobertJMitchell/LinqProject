@@ -27,17 +27,27 @@ namespace LinqProject
 
             foreach (var obj in todoResultsByCompletion)
             {
-                Console.WriteLine("Name: {0}", obj.User);
+                Console.WriteLine("Name: {0}", obj.Name);
                 Console.WriteLine(obj.Name);
             }
 
+            
+
             List<Todo> todoResultsByCreation = tList.Where(t => t.dateCreated <= DateTime.Now.AddDays(-5)).ToList();
+
             foreach (var obj in todoResultsByCreation)
             {
-                Console.WriteLine("Name: {0}, Date Created: {3}", obj.User, obj.dateCreated);
-                Console.WriteLine(obj.dateCreated);
+                Console.WriteLine("Names: {0}, Date Created: {1}", obj.Name, obj.dateCreated);
+                Console.WriteLine(obj.Name, obj.dateCreated);
             }
 
+            List<Todo> todoResultsByModification = tList.Where(t => t.dateModified <= DateTime.Now.AddDays(-6)).ToList();
+
+            foreach (var obj in todoResultsByModification)
+            {
+                Console.WriteLine("Name: {0}, Date Created: {1}, Date Modified: {2}", obj.Name, obj.dateCreated, obj.dateModified);
+                Console.WriteLine(obj.Name, obj.dateCreated, obj.dateModified);
+            }
             Console.ReadLine();
         }
 
@@ -50,16 +60,16 @@ namespace LinqProject
         public Todo(string p1, string p2, bool p3, DateTime dateTime1, DateTime dateTime2)
         {
             // TODO: Complete member initialization
-            this.User = p1;
-            this.Name = p2;
+            this.Name = p1;
+            this.Task = p2;
             this.isCompleted = p3;
             this.dateCreated = dateTime1;
             this.dateModified = dateTime2;
         }
         // person TODO is assigned to
-        public string User { get; set; }
-        // Task that needs to be done
         public string Name { get; set; }
+        // Task that needs to be done
+        public string Task { get; set; }
         // if the Task has been completed
         public bool isCompleted { get; set; }
         // the creation date
