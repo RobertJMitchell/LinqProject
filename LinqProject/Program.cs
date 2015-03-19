@@ -14,11 +14,11 @@ namespace LinqProject
             // List of TODOS
             List<Todo> tList = new List<Todo>
             {
-                new Todo("Rick",    "Burn couch", false, DateTime.Now.AddDays(-10),DateTime.Now.AddDays(-5) ),
-                new Todo("Sam",     "Bring Sodas", false, DateTime.Now.AddDays(-9), DateTime.Now),
-                new Todo("Mike",    "Bring Chip", false, DateTime.Now.AddDays(-6), DateTime.Now),
-                new Todo("Sue",     "Bring Beer", true, DateTime.Now.AddDays(-5), DateTime.Now),
-                new Todo("Ricky",   "Bring Pizza", true, DateTime.Now.AddDays(-5), DateTime.Now)
+                new Todo("Rick",    "Burn couch", false, DateTime.Now.AddDays(-10),DateTime.Now.AddDays(-7) ),
+                new Todo("Sam",     "Bring Sodas", false, DateTime.Now.AddDays(-6), DateTime.Now.AddDays(-4)),
+                new Todo("Mike",    "Bring Chip", false, DateTime.Now.AddDays(-9), DateTime.Now.AddDays(-8)),
+                new Todo("Sue",     "Bring Beer", true, DateTime.Now.AddDays(-4), DateTime.Now.AddDays(-2)),
+                new Todo("Ricky",   "Bring Pizza", true, DateTime.Now.AddDays(-6), DateTime.Now.AddDays(-6))
 
             };
 
@@ -50,6 +50,8 @@ namespace LinqProject
             }
 
             List<Todo> todoResultsByModification = tList.Where(t => t.dateModified <= DateTime.Now.AddDays(-6)).ToList();
+
+            Console.WriteLine("****************THIS IS A LIST OF TODOS BY DATE MODIFIED************************");
 
             foreach (var obj in todoResultsByModification)
             {
